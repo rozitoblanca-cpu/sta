@@ -1,0 +1,803 @@
+/*======================================
+        IMPORTAR FUENTE
+======================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*======================================
+        CONFIGURACIÓN GENERAL
+======================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+    background:linear-gradient(180deg,#020611,#071328,#10244d);
+
+    color:#fff;
+
+}
+
+/*======================================
+          SCROLL
+======================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#FFD166;
+
+    border-radius:50px;
+
+}
+
+/*======================================
+        PANTALLA DE CARGA
+======================================*/
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+    transition:1.2s;
+
+}
+
+#loader.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+}
+
+.loader-heart{
+
+    font-size:80px;
+
+    animation:heartBeat 1.2s infinite;
+
+}
+
+.loader-content h2{
+
+    margin-top:20px;
+
+    color:#FFD166;
+
+    font-size:30px;
+
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.25);
+
+    }
+
+}
+
+/*======================================
+        TRANSICIÓN NEGRA
+======================================*/
+
+#transition{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transition:1s;
+
+}
+
+#transition.show{
+
+    opacity:1;
+
+}
+
+/*======================================
+        LUNA
+======================================*/
+
+#moon{
+
+    position:fixed;
+
+    width:230px;
+
+    height:230px;
+
+    border-radius:50%;
+
+    right:70px;
+
+    top:50px;
+
+    background:#fffce7;
+
+    box-shadow:
+    0 0 60px #fff,
+    0 0 120px #fff7c2,
+    0 0 220px rgba(255,255,255,.8);
+
+    animation:moonFloat 7s ease-in-out infinite;
+
+}
+
+@keyframes moonFloat{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/*======================================
+        ESTRELLAS
+======================================*/
+
+#stars{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background-image:
+
+    radial-gradient(2px 2px at 40px 80px,#fff,transparent),
+
+    radial-gradient(2px 2px at 220px 140px,#fff,transparent),
+
+    radial-gradient(3px 3px at 450px 90px,#fff,transparent),
+
+    radial-gradient(2px 2px at 650px 240px,#fff,transparent),
+
+    radial-gradient(2px 2px at 900px 400px,#fff,transparent);
+
+    background-size:1000px 700px;
+
+    animation:starsMove 90s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-700px);
+
+    }
+
+}
+
+/*======================================
+        SECCIONES
+======================================*/
+
+section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+/*======================================
+        TARJETA GLASS
+======================================*/
+
+.glass{
+
+    width:90%;
+
+    max-width:900px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 0 40px rgba(255,255,255,.12);
+
+    animation:fadeUp 1s;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*======================================
+            TEXTOS
+======================================*/
+
+.emoji{
+
+    display:block;
+
+    font-size:80px;
+
+    margin-bottom:20px;
+
+}
+
+h1{
+
+    font-size:3rem;
+
+    color:#FFD166;
+
+    margin-bottom:25px;
+
+}
+
+h2{
+
+    color:#FFD166;
+
+    margin-bottom:20px;
+
+    font-size:2rem;
+
+}
+
+p{
+
+    font-size:20px;
+
+    line-height:2;
+
+    white-space:pre-line;
+
+}
+
+/*======================================
+            BOTONES
+======================================*/
+
+button{
+
+    margin-top:40px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    background:linear-gradient(45deg,#ff006e,#ff5d8f);
+
+    transition:.4s;
+
+    box-shadow:0 0 30px rgba(255,0,110,.4);
+
+}
+
+button:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:0 0 45px rgba(255,0,110,.8);
+
+}
+
+/*======================================
+        IMPORTAR FUENTE
+======================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*======================================
+        CONFIGURACIÓN GENERAL
+======================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+    background:linear-gradient(180deg,#020611,#071328,#10244d);
+
+    color:#fff;
+
+}
+
+/*======================================
+          SCROLL
+======================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#FFD166;
+
+    border-radius:50px;
+
+}
+
+/*======================================
+        PANTALLA DE CARGA
+======================================*/
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+    transition:1.2s;
+
+}
+
+#loader.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+}
+
+.loader-heart{
+
+    font-size:80px;
+
+    animation:heartBeat 1.2s infinite;
+
+}
+
+.loader-content h2{
+
+    margin-top:20px;
+
+    color:#FFD166;
+
+    font-size:30px;
+
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.25);
+
+    }
+
+}
+
+/*======================================
+        TRANSICIÓN NEGRA
+======================================*/
+
+#transition{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transition:1s;
+
+}
+
+#transition.show{
+
+    opacity:1;
+
+}
+
+/*======================================
+        LUNA
+======================================*/
+
+#moon{
+
+    position:fixed;
+
+    width:230px;
+
+    height:230px;
+
+    border-radius:50%;
+
+    right:70px;
+
+    top:50px;
+
+    background:#fffce7;
+
+    box-shadow:
+    0 0 60px #fff,
+    0 0 120px #fff7c2,
+    0 0 220px rgba(255,255,255,.8);
+
+    animation:moonFloat 7s ease-in-out infinite;
+
+}
+
+@keyframes moonFloat{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/*======================================
+        ESTRELLAS
+======================================*/
+
+#stars{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background-image:
+
+    radial-gradient(2px 2px at 40px 80px,#fff,transparent),
+
+    radial-gradient(2px 2px at 220px 140px,#fff,transparent),
+
+    radial-gradient(3px 3px at 450px 90px,#fff,transparent),
+
+    radial-gradient(2px 2px at 650px 240px,#fff,transparent),
+
+    radial-gradient(2px 2px at 900px 400px,#fff,transparent);
+
+    background-size:1000px 700px;
+
+    animation:starsMove 90s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-700px);
+
+    }
+
+}
+
+/*======================================
+        SECCIONES
+======================================*/
+
+section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+/*======================================
+        TARJETA GLASS
+======================================*/
+
+.glass{
+
+    width:90%;
+
+    max-width:900px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 0 40px rgba(255,255,255,.12);
+
+    animation:fadeUp 1s;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*======================================
+            TEXTOS
+======================================*/
+
+.emoji{
+
+    display:block;
+
+    font-size:80px;
+
+    margin-bottom:20px;
+
+}
+
+h1{
+
+    font-size:3rem;
+
+    color:#FFD166;
+
+    margin-bottom:25px;
+
+}
+
+h2{
+
+    color:#FFD166;
+
+    margin-bottom:20px;
+
+    font-size:2rem;
+
+}
+
+p{
+
+    font-size:20px;
+
+    line-height:2;
+
+    white-space:pre-line;
+
+}
+
+/*======================================
+            BOTONES
+======================================*/
+
+button{
+
+    margin-top:40px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    background:linear-gradient(45deg,#ff006e,#ff5d8f);
+
+    transition:.4s;
+
+    box-shadow:0 0 30px rgba(255,0,110,.4);
+
+}
+
+button:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:0 0 45px rgba(255,0,110,.8);
+
+}
